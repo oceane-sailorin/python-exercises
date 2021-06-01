@@ -4,7 +4,9 @@
 # fibo(n) : 1, 1, 2, 3, 5, 8, 13,...
 # to remove O(2**n) complexity, we need to decrease number of recursive calls and reuse subcalculations
 
-def fibo(n, subDict = {}):
+def fibo(n, subDict = None):
+    if subDict is None: subDict = {}    
+
     if n < 0: return "invalid number"
     if n == 0: return 0
     if n in subDict: 

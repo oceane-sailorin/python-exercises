@@ -1,7 +1,10 @@
 # how many ways can you travel to the goal on a grid dimension m * n using recursion
 # to remove O(2**m+n) complexity, we need to decrease number of recursive calls and reuse subresults
 
-def gridTravel(m,n, subDict = {}):
+def gridTravel(m,n, subDict = None):
+    if subDict is None:
+        subDict = {}
+
     tupArg = (m,n)
     if tupArg in subDict: 
         return subDict[tupArg]  
