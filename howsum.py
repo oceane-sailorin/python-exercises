@@ -30,7 +30,7 @@ def howSum(target, numbers, subDict=None):
 # 
 # memoization: 
 # time: O(n*m**2)   
-# space: O(m)
+# space: O(m**2)
 
 print(howSum(7, [1,2,3]))    
 print(howSum(0, [2,4]))  
