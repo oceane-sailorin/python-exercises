@@ -7,3 +7,9 @@ list of exercises to keep essential algorithms in mind
 examples from Alvin Zablan from Coderbyte translated into python
 
 use of recursion and memoization
+
+## tabulation
+
+examples from Alvin Zablan from Coderbyte translated into python
+
+use of tabulation
