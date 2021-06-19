@@ -1,6 +1,8 @@
 # python-exercises
 
-list of exercises to keep essential algorithms in mind 
+List of exercises to keep essential algorithms in mind 
+using either memoization, either tabulation.
+According to the algorithm, the one can be better appropriate than the other and sometimes both are equally efficient
 
 ## memoization
 
