@@ -15,3 +15,10 @@ use of recursion and memoization
 examples from Alvin Zablan from Coderbyte translated into python
 
 use of tabulation
+
+
+## little games
+
+little games coded in python
+
+examples from Kylie Ying
