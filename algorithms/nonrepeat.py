@@ -61,5 +61,5 @@ def nonrepeat3(string1):
 
     return result
 
-print(nonrepeat2("785217852"))
-print(nonrepeat2("I like peeling king apples"))
+print(nonrepeat3("9632589631258"))
+print(nonrepeat3("I like to know how to let go"))
