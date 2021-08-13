@@ -12,9 +12,7 @@ class Solution:
         res = ""
 
         for i, s in enumerate(car):
-            #print("s="+s)
             for str in arr1 :
-                #print("stri="+str[i])
                 if str[i] != s:
                     return res
             res += s    
