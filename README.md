@@ -22,3 +22,7 @@ use of tabulation
 little games coded in python
 
 examples from Kylie Ying
+
+## algorithms
+
+my solutions to leetcode, etc problems
