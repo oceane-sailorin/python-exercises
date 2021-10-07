@@ -13,7 +13,7 @@ class TreeNode:
 
 
 class Solution:
-    def isSameTree(self, p: TreeNode, q: TreeNode) -> bool:
+    def isSameTree(self, p, q) -> bool:
         if(p is None and q is None):
             return True
         elif(p is None or q is None):
@@ -26,6 +26,20 @@ class Solution:
     
 
 s1 = Solution()
-s2 = TreeNode()
 
-print(s1.isSameTree([1,2,3], [1,2,3]))
+tree11 = TreeNode(1,TreeNode(2),TreeNode(3))
+tree21 = TreeNode(1,TreeNode(2),TreeNode(3))
+
+print(s1.isSameTree(tree11,tree21))
+
+
+tree12 = TreeNode(1,TreeNode(2))
+tree22 = TreeNode(1,TreeNode(None),TreeNode(2))
+
+print(s1.isSameTree(tree12,tree22))
+
+
+tree13 = TreeNode(1,TreeNode(2),TreeNode(1))
+tree23 = TreeNode(1,TreeNode(1),TreeNode(2))
+
+print(s1.isSameTree(tree13,tree23))
