@@ -28,7 +28,7 @@ class Solution:
             
        
     
-    
+  #examples  
 
 s1 = Solution()
 
