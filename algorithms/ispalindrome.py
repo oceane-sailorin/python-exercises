@@ -12,6 +12,8 @@ class Solution:
 
 s1 = Solution()
 
+#check examples
+
 print(s1.isPalindrome("A man, a plan, a canal: Panama"))
 
 
