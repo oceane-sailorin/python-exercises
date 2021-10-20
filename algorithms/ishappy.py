@@ -11,7 +11,7 @@ Return true if n is a happy number, and false if not.
 """
 class Solution:
     def isHappy(self, n: int) -> bool:
-        return self.isHappyNumber(self, n, subDict=None)
+        return self.isHappyNumber(n, None)
 
     def isHappyNumber(self, n:int, subDict=None):
         if subDict is None:
@@ -23,14 +23,14 @@ class Solution:
         if n in subDict:
             return False   
 
-        remain = total = 0
+        total = 0
         subDict[n] = 1
-        while(n > 0):
-            remain = n%10    
-            total += remain**2  
-            n //= 10 
+        lst = [int(i) for i in str(n)]
 
-        return self.isHappyNumber(n, subDict)                
+        for i in lst:
+            total += i**2  
+
+        return self.isHappyNumber(total, subDict)                
     
         
 
@@ -41,5 +41,5 @@ s1 = Solution()
 
 print(s1.isHappy(19))
 print(s1.isHappy(2))
-print(s1.isHappy(25))
-print(s1.isHappy(34))
+print(s1.isHappy(13))
+print(s1.isHappy(23))
