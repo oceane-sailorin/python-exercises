@@ -13,13 +13,16 @@ class Solution:
     def isHappy(self, n: int) -> bool:
         return self.isHappyNumber(n, None)
 
+    #function with directory
     def isHappyNumber(self, n:int, subDict=None):
         if subDict is None:
             subDict = {}
 
+        # result ok if 1
         if n == 1:
             return True
 
+        # avoid never ending loop
         if n in subDict:
             return False   
 
