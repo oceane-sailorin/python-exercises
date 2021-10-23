@@ -12,18 +12,21 @@ class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
        
         subDict = {}
-
+        #if not same length return false
         if len(s) != len(t):
             return False
 
+        # iterate on s 
         for i in range(len(s)):
 
-            if s[i] in subDict.keys() and subDict[s[i]] != t[i]:
+            if s[i] in subDict.keys():
+                if subDict[s[i]] != t[i]:
                     return False
             else:
                 if t[i] in subDict.values():
                     return False
-            
+
+                # put value of same index of t as value to key of index i of s
                 subDict[s[i]] = t[i]
         return True           
     
