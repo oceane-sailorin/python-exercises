@@ -4,10 +4,13 @@ import re
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         result = ""
+        #lower the string
         news = re.sub("[^0-9a-zA-Z]+", "", s).lower()
+        #reverse the string
         for l in range(1, len(news) + 1):          
             result += news[len(news) - l]
-           
+
+        # return boolean lowered string equals reverse lowered string  
         return result == news
 
 s1 = Solution()
