@@ -15,9 +15,11 @@ s1 = Solution()
 
 #check examples
 
-
+# 19 === 10011,  18 === 10010,   10011 by 10010 = 10010 (not 0)
 print(s1.isPowerOfTwo(19))
+# 1 === 1,  0 === 0,   1 by 0 = 0
 print(s1.isPowerOfTwo(1))
+# 16 === 10000,  15 === 1111,   10000 by 1111 = 0
 print(s1.isPowerOfTwo(16))
 # 3 === 11,  2 === 10,   11 by 10 = 10 ( not 0)
 print(s1.isPowerOfTwo(3))
