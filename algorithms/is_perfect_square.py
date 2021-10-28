@@ -10,6 +10,14 @@ Follow up: Do not use any built-in library function such as sqrt.
 
 class Solution:
     def isPerfectSquare(self, num: int) -> bool:
+        if type(num) != int:  
+            return False
+        if num < 0:      
+            return False
+        if num == 0:     
+            return True
+
+        return num**.5 % 1 == 0
 
 
 
@@ -18,3 +26,8 @@ s1 = Solution()
 #check examples
 
 print(s1.isPerfectSquare(19))
+
+print(s1.isPerfectSquare(36))
+
+
+print(s1.isPerfectSquare(36259874523659))
