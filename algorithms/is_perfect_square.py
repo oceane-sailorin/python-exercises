@@ -17,7 +17,8 @@ class Solution:
         if num == 0:     
             return True
 
-        return num**.5 % 1 == 0
+        #expon 0.5 = square root if num < 2**31 and num positive
+        return num**0.5 % 1 == 0
 
 
 
@@ -31,3 +32,5 @@ print(s1.isPerfectSquare(36))
 
 
 print(s1.isPerfectSquare(36259874523659))
+
+print(s1.isPerfectSquare(66946905081))
