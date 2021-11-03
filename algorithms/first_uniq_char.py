@@ -4,6 +4,8 @@
 Given a string s, find the first non-repeating character in it and return its index. If it does not exist, return -1.
 
 """
+from collections import Counter
+
 class Solution:
     def firstUniqChar(self, s: str) -> int:
         subDict = {} 
@@ -16,6 +18,15 @@ class Solution:
             if subDict[char] == 1: return i
 
         return index
+
+    def firstUniqChar2(self, s: str) -> int:
+        count = Counter(s)
+        res = {key for key,value in count.items() if value==1}
+        for i in range(len(s)):
+            if s[i] in res:
+                return i
+        else:
+            return -1
 
 
 
@@ -31,4 +42,12 @@ print(s1.firstUniqChar("beauchamps"))
 print(s1.firstUniqChar("nakasone"))
 
 print(s1.firstUniqChar("toto"))
+
+print(s1.firstUniqChar2("romero"))
+
+print(s1.firstUniqChar2("beauchamps"))
+
+print(s1.firstUniqChar2("nakasone"))
+
+print(s1.firstUniqChar2("toto"))
 
