@@ -7,6 +7,7 @@ Given a string s, find the first non-repeating character in it and return its in
 from collections import Counter
 
 class Solution:
+    #solution with dictionary
     def firstUniqChar(self, s: str) -> int:
         subDict = {} 
         index = -1
@@ -19,6 +20,7 @@ class Solution:
 
         return index
 
+    #solution with counter from collections
     def firstUniqChar2(self, s: str) -> int:
         count = Counter(s)
         res = {key for key,value in count.items() if value==1}
