@@ -8,22 +8,20 @@ A subsequence of a string is a new string that is formed from the original strin
 
 class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
-        if not s:
-            return True
-        
-        i = 0
+        if not s: return True
+        if len(t) < len(s): return False
+        index = 0
                
-        for c in t:
-            if c == s[i]:
-                i += 1
-            if i >= len(s):
+        for char in t:
+            if char == s[index]:
+                index += 1
+            if index >= len(s):
                 break
         
-        if i == len(s):     
+        if index == len(s):     
             return True
         
         return False
-
 
 
 s1 = Solution()
@@ -33,3 +31,7 @@ s1 = Solution()
 print(s1.isSubsequence("abc","ahbgdc"))
 
 print(s1.isSubsequence("axc","ahbgdc"))
+
+print(s1.isSubsequence("chu","ghciothduir"))
+
+print(s1.isSubsequence("nox","ngtxiutoth"))
