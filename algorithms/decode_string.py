@@ -13,9 +13,19 @@ Furthermore, you may assume that the original data does not contain any digits a
 class Solution:
     def decodeString(self, s: str) -> str:
         num = 0
+        res = ''
+        temp = []
         for c in s:
             if c.isdigit():
                 num+= (num * 10) + int(c)
+            elif c == '[':
+                temp.append((res, num))
+            elif c == ']':
+                temp.pop()
+            else:
+                res += c
+
+        return res
 
 
 s1 = Solution()
