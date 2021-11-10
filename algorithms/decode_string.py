@@ -19,7 +19,7 @@ class Solution:
         for c in s:
             if c.isdigit():
                 #multiply existing number by ten and add new digit (in case k has several digits)
-                num+= (num * 10) + int(c)
+                num = num * 10 + int(c)
             elif c == '[':
                 #append existing values in stack list in order to recover them at the end of the brackets
                 temp.append((res, num))
@@ -49,3 +49,6 @@ print(s1.decodeString("3[a2[c]]"))
 print(s1.decodeString("2[abc]3[cd]ef"))
 
 print(s1.decodeString("abc3[cd]xyz"))
+
+print(s1.decodeString("100[leetcode]"))
+
