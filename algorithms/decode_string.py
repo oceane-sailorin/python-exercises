@@ -14,15 +14,25 @@ class Solution:
     def decodeString(self, s: str) -> str:
         num = 0
         res = ''
+        #initialize stack list
         temp = []
         for c in s:
             if c.isdigit():
+                #multiply existing number by ten and add new digit (in case k has several digits)
                 num+= (num * 10) + int(c)
             elif c == '[':
+                #append existing values in stack list in order to recover them at the end of the brackets
                 temp.append((res, num))
+                #reinitialize values to take into account only what is in the brackets
+                num = 0
+                res = ''
             elif c == ']':
-                temp.pop()
+                #retrieve the values from the stack
+                temp_res,temp_num = temp.pop()
+                #multiply letters in the brackets by number before the brackets and add to what was the string before the brackets
+                res = temp_res + temp_num * res
             else:
+                #add character to current string
                 res += c
 
         return res
