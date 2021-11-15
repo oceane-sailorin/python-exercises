@@ -42,7 +42,8 @@ else:
 
 
 
-# Python program to check if the number is an Armstrong number or not
+# Python program to check if the number is an Armstrong number or not 
+#sum of cubes of each digit equal number
 
 # take input from the user
 num = int(input("Enter a number: "))
@@ -74,3 +75,24 @@ if(int(sum(b))==n):
     print("The number is an armstrong number. ")
 else:
     print("The number isn't an arsmtrong number. ")
+
+
+# is perfect number = sum of all positive divisors
+n = int(input("Enter any number: "))
+sum1 = 0
+for i in range(1, n):
+    if(n % i == 0):
+        sum1 = sum1 + i
+if (sum1 == n):
+    print("The number is a Perfect number!")
+else:
+    print("The number is not a Perfect number!")   
+
+
+#check common letters in 2 strings
+s1 = input("Enter first string:")
+s2 = input("Enter second string:")
+a = list(set(s1)&set(s2))
+print("The common letters are:")
+for i in a:
+    print(i)
