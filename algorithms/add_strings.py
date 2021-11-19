@@ -3,7 +3,7 @@
 # add numbers as strings
 
 
-# Approach 1: 
+# solution with eval
 class Solution:
     def add_strings(self,num1,num2):
         eval(num1) + eval(num2)
@@ -11,13 +11,12 @@ class Solution:
             
 
 
-#Approach2 
-#Given a string of length one, the ord() function returns an integer representing the Unicode code point of the character 
-#when the argument is a unicode object, or the value of the byte when the argument is an 8-bit string.
+#solution with ord
 
-    def add_string2(self,num1, num2):
+    def add_strings2(self,num1, num2):
         n1, n2 = 0, 0
         m1, m2 = 10**(len(num1)-1), 10**(len(num2)-1)
+        print(m1,m2)
 
         for i in num1:
             n1 += (ord(i) - ord("0")) * m1 
@@ -35,3 +34,5 @@ s1 = Solution()
 #check examples
 
 print(s1.add_strings('10','12'))
+print(s1.add_strings2('10','12'))
+print(s1.add_strings2('100000','120000'))
