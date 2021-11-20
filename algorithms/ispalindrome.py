@@ -13,12 +13,17 @@ class Solution:
         # return boolean lowered string equals reverse lowered string  
         return result == news
 
+    def isPalindrome2(self, s: str) -> bool:
+        news = re.sub("[^0-9a-zA-Z]+", "", s).lower()
+        return news == news[::-1]
+
 s1 = Solution()
 
 #check examples
 
 print(s1.isPalindrome("A man, a plan, a canal: Panama"))
 
+print(s1.isPalindrome2("A man, a plan, a canal: Panama"))
 
 print(s1.isPalindrome("race a car"))
 
@@ -31,3 +36,5 @@ print(s1.isPalindrome("Dennis, Nell, Edna, Leon, Nedra, Anita, Rolf, Nora, Alice
 print(s1.isPalindrome("Yo, banana boy!"))
 
 print(s1.isPalindrome("Marge lets Norah see Sharron’s telegram."))
+
+print(s1.isPalindrome2("Marge lets Norah see Sharon’s telegram."))
