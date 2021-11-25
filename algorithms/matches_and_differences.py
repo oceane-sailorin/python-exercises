@@ -7,6 +7,8 @@ class Solution:
         set1 = set(string1.split())
         set2 = set(string2.split())
         
+        #return sorted array with words in common and sorted array with words that are not
+        #intersection & and symmetric difference ^ 
         return sorted(list(set1&set2)) ,sorted(list(set1^set2))
 
 s1 = Solution()
