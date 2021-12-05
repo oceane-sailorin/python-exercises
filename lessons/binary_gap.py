@@ -1,11 +1,8 @@
 # binary gap
 
-"""Write a function:
-
-    def solution(N)
-
-that, given a positive integer N, returns the length of its longest binary gap. 
-The function should return 0 if N doesn't contain a binary gap.
+"""Write a function 
+which returns the length of the longest binary gap of a given integer 
+or 0 if no binary gap
 """
 
 def binary_gap(num):
@@ -34,3 +31,9 @@ print(binary_gap(5))
 print(binary_gap(529))
 
 print(binary_gap(32))
+
+print(binary_gap(3))
+
+print(binary_gap(0))
+
+print(binary_gap(285))
