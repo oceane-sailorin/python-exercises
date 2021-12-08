@@ -5,8 +5,10 @@ which given an array and a number of time returns an array shifted K times to th
 """
 
 def rotate_array(arr1,num):
-    rotations = num % len(arr1)
-    return arr1[-rotations:] + arr1[:-rotations]
+    #modulo to process array len < num
+    rotate = num % len(arr1)
+    #return concatenation of two parts of array shifted at rotate index
+    return arr1[-rotate:] + arr1[:-rotate]
     
     
 print(rotate_array([3, 8, 9, 7, 6],3))   
