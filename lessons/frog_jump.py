@@ -21,3 +21,6 @@ def frog_jump(X, Y, D):
 
 
 print(frog_jump(10,85,30))
+print(frog_jump(0,-10,2))
+print(frog_jump(20,200,30))
+print(frog_jump(123,45874523,584))
