@@ -5,6 +5,7 @@ given an array of integers n the range [1..(N + 1)], return the missing element
 """
 
 def perm_missing_element(arr1):
+    #if not start with 1
     arr1 = sorted(arr1)
     missing = None
     if not arr1:
@@ -17,8 +18,19 @@ def perm_missing_element(arr1):
 
     return missing
 
+def perm_missing_element2(arr1):
+    #if start with 1
+    length = len(arr1)
+    maximum = (length + 1)*(length + 2) / 2
+    arr1_sum = sum(arr1)
+    return int(maximum - arr1_sum)
+ 
+
 
 print(perm_missing_element([2,3,1,5]))
 print(perm_missing_element([2]))
 print(perm_missing_element([]))
-print(perm_missing_element([1,6,9,8,7,3,4,2,11,15,13,12,14,10]))
+print(perm_missing_element([6,9,8,7,3,4,11,15,13,12,14,10]))
+
+print(perm_missing_element2([2,3,1,5]))
+print(perm_missing_element2([1,6,9,8,7,3,4,2,11,15,13,12,14,10]))
