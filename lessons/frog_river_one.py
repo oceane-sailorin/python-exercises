@@ -24,7 +24,7 @@ def frog_river_one(X, A):
 
     return -1
 
-
+#time complexity = O(N)
 
 print(frog_river_one(5,[1,2,4,5,3]))
 
@@ -39,5 +39,9 @@ print(frog_river_one(5,[1,3,1,4,2,3,5,4]))
 print(frog_river_one(4,[1,5,6,8,4,1,2,5,9,8,4]))
 
 print(frog_river_one(8,[4,8,5,2,6,6,4,5,1,7,4,5,3,2,6]))
+
+print(frog_river_one(5,[]))
+
+print(frog_river_one(0,[1,2,4,5,3]))
 
     
