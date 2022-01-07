@@ -3,7 +3,7 @@
 given an array A of N integers, returns the smallest positive integer (greater than 0) that does not occur in A
 """
 
-def solution(A):
+def solution2(A):
     smallest = 1
     latest = 0
     if not A: return 1
@@ -18,6 +18,15 @@ def solution(A):
     return smallest
 
 
+def solution(A):
+    if not A: return 1
+    sorted_arr = sorted(A)
+    smallest = 1
+
+    for x in sorted_arr:
+        if x == smallest: smallest += 1
+
+    return smallest
 
 
 print(solution([1, 3, 6, 4, 1, 2]))
