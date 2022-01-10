@@ -50,3 +50,8 @@ print(solution(10,10,7))
 
 print(solution(10,10,20))
 
+print(solution(100,123000000,2))
+
+print(solution(0,2000000000,560))
+
+print(solution(200000000,600000000,26000))
