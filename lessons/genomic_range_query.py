@@ -47,10 +47,9 @@ Write an efficient algorithm for the following assumptions:
         P[K] ≤ Q[K], where 0 ≤ K < M;
         string S consists only of upper-case English letters A, C, G, T.
 
-single letter, almost same letters
 """
 
-def solution(S, P, Q):
+def solution2(S, P, Q):
     N = len(S)
     M = len(P)
     result = []
@@ -83,6 +82,58 @@ def solution(S, P, Q):
 
     return result
 
+def solution(S, P, Q):
+    N = len(S)
+    M = len(P)
+    result = []
+    impact = {"A": 1,"C": 2,"G": 3,"T": 4}
+    sum_a = [0] * N
+    sum_c = [0] * N
+    sum_g = [0] * N
+    sum_t = [0] * N
+    a=c=g=t=0
+    for k in range(0,N):
+        if S[k] == "A": a +=1
+        elif S[k] == "C": c +=1
+        elif S[k] == "G": g += 1
+        elif S[k] == "T": t += 1
+        sum_a[k] = a
+        sum_c[k] = c
+        sum_g[k] = g
+        sum_t[k] = t
+
+    for i in range(0,M):
+        if P[i] > N or Q[i] > N: return None
+        if P[i] == Q[i]: result.append(impact[S[P[i]]])
+    
+        elif sum_a[P[i]] < sum_a[Q[i]] or S[P[i]] == "A": result.append(1)
+        elif sum_c[P[i]] < sum_c[Q[i]] or S[P[i]] == "C": result.append(2)
+        elif sum_g[P[i]] < sum_g[Q[i]] or S[P[i]] == "G": result.append(3)
+        elif sum_t[P[i]] < sum_t[Q[i]] or S[P[i]] == "T": result.append(4)
+
+    return result
+
 
 print(solution("CAGCCTA",[2,5,0],[4,5,6]))
 
+print(solution("G",[2,5,0],[4,5,6]))
+
+print(solution("G",[0],[0]))
+
+print(solution("AGTTG",[1,2,3],[2,3,4]))
+
+print(solution("CCCCCCC",[0,2,3,4],[2,3,4,5]))
+
+print(solution("CCCCCCG",[0,2,3,4],[2,3,4,5]))
+
+print(solution("CCCGCCC",[0,2,3,4],[2,3,3,5]))
+
+print(solution("CGTAATGC",[5,6,0,5],[5,6,0,5]))
+
+print(solution("TGCATGGTCAATGCCACCTTGC",[2],[4]))
+
+print(solution("TGCATGGTCAATGCCACCTTGC",[7],[14]))
+
+print(solution("TGCGGTTGGTGTTTTGGTTGGC",[7],[14]))
+
+print(solution("TGCATGGTCAATGCCACCTTGC",[2,15,14,3,9,15,18,4,5,7,12,10,13,16,5],[8,16,17,8,18,16,18,14,15,17,13,11,16,19,20]))
