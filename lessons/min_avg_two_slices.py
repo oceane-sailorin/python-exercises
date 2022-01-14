@@ -53,26 +53,27 @@ def solution(A):
         R[k] = R[k - 1] + A[k - 1]
 
     min_avg = (A[0] + A[1]) / 2
-    prev_avg = current_avg = 0
+    current_avg = two_avg = 0
     position = min_position = 0
     last_avg = 0
     
     for i in range(2, n):
       
-        prev_avg = (R[i + 1] - R[position]) / (i - position + 1)
+        #avg of slice P=position, Q=i
+        current_avg = (R[i + 1] - R[position]) / (i - position + 1)
 
-        # average of A[i - 1 : i]
-        current_avg = (A[i - 1] + A[i]) / 2.0
+        # average of slice of two A[i - 1], A[i]
+        two_avg = (A[i - 1] + A[i]) / 2.0
         
-        # Find minimum and update left position of slice
-        # previous position or i - 1
-        if (current_avg < prev_avg):
-            last_avg = current_avg
+        # Find minimum and update starting position of slice
+        # between P,Q avg and slice of two avg
+        if two_avg < current_avg:
+            last_avg = two_avg
             position = i - 1
         else:
-            last_avg = prev_avg
+            last_avg = current_avg
         
-        # Keep track of minimum so far and its left position
+        # update current minimum average and minimum position
         if last_avg < min_avg:
             min_avg = last_avg
             min_position = position
@@ -86,3 +87,8 @@ print(solution([4,2,2,5,1,5,8]))
 
 print(solution([8,0,0,0,8]))
 
+print(solution([7,8,2,3]))
+
+print(solution([8,-10,5,-3,2,6]))
+
+print(solution([8,-10,5,-3,2,6,-63]))
