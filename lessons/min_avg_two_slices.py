@@ -45,7 +45,7 @@ Write an efficient algorithm for the following assumptions:
 
 """
 
-def solution(A):
+def solution2(A):
     n = len(A)
     if n <= 2: return 0
     R = [0] * (n + 1)
@@ -83,6 +83,29 @@ def solution(A):
     return min_position
 
 
+# solution with tests of slices of 3 and 2 only, since mathematically, if there is a slice of more elements with the minimum average, 
+# it can always be split into slices of 2 and 3 elements with the minimum average as well
+def solution(A):
+    n = len(A)
+    if n <= 2: return 0
+    min_avg = 10000
+    min_position = 0 
+    for i in range(0,n-2):
+        # check i + 2 next values for slices of 3
+        avg_three = (A[i] + A[i+1] + A[i+2]) / 3
+        # check i + next value for slices of 2
+        avg_two = (A[i] + A[i+1]) / 2
+        # update min average and min position
+        if min_avg > avg_three or min_avg > avg_two:
+            min_avg = min(avg_three,avg_two)
+            min_position = i
+
+    #test last 2 positions of A which were not tested in loop
+    if min_avg > (A[-1] + A[-2]) / 2:
+        min_position =  n-2
+
+    return min_position
+
 print(solution([4,2,2,5,1,5,8]))
 
 print(solution([8,0,0,0,8]))
@@ -92,3 +115,9 @@ print(solution([7,8,2,3]))
 print(solution([8,-10,5,-3,2,6]))
 
 print(solution([8,-10,5,-3,2,6,-63]))
+
+print(solution([7]))
+
+print(solution([8000,-1000,500,-3000,200,6000,-6300]))
+
+print(solution([8000,1000,500,3000,200,6000,6300]))
