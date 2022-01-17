@@ -49,11 +49,9 @@ def solution(A):
     n = len(A)
     if n <= 1: return 0
     #sum of array A
-    R = [0] * (n + 1)
     S = 0
-    for k in range(1, n + 1):
-        R[k] = R[k - 1] + A[k - 1]
-        S = R[k]
+    for k in range(0, n):
+        S += A[k]
 
     sum_right = S
     sum_left = 0
@@ -61,8 +59,9 @@ def solution(A):
     diff = 100000
     for i in range(0, n-1):
         sum_left += A[i]
+        #sum_right = S - sum_left
         #diff = math.abs(sum_left - sum_right)
-        #diff = math.abs(sum_left - R + sum_left)
+        #diff = math.abs(sum_left - S + sum_left)
         diff = abs(2 * sum_left - S )
         if diff < min_diff: 
             min_diff = diff
