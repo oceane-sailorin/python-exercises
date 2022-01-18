@@ -22,7 +22,7 @@ that, given an array A consisting of N integers fulfilling the above conditions,
 """
 
 
-def solution(A):
+def solution2(A):
     n = len(A)
     if n == 1:
         return A[0]
@@ -40,6 +40,23 @@ def solution(A):
     return missing
 
 
+def solution3(A):
+    n = len(A)
+    if n == 1:
+        return A[0]
+    A.sort()
+    for i in range(0, n -1, 2):
+        if A[i] != A[i+1]:
+            return A[i]
+    return A[-1]
+
+# A xor A cancels itself and B xor 0 is B. 
+# Therefore A xor A xor B xor C xor C is B
+def solution(A):
+    missing = 0
+    for n in A:
+        missing ^= n
+    return missing
 
 
 print(solution([9,3,9,3,9,7,9]))
