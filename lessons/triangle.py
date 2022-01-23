@@ -48,6 +48,13 @@ def solution(A):
             return 1
     return 0
       
+#If the array is sorted and the values are positive, 
+#you only have to check that the sum of two consecutive elements is greater than the next element (A[i] + A[i+1] > A[i+2]), 
+#because in that case, 
+#the other two conditions (A[i+1]+A[i+2] > A[i], A[i]+A[i+2] > A[i+1]) will always be true.
+
+#complexity O(NlogN)
+
 
 print(solution([10,2,5,1,8,20]))
 
@@ -55,3 +62,6 @@ print(solution([50,-25,30]))
 
 print(solution([-24,-25,-26]))
 
+print(solution([200000,511224,6547852,12547,23685,1254785,16335411]))
+
+print(solution([25]))
