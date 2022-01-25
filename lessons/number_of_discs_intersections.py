@@ -32,6 +32,47 @@ Given array A shown above, the function should return 11, as explained above.
 
 def solution(A):
     N = len(A)
+    if N <2:
+        return 0
+    res = 0
+    result = []
+    dict = {}
+    for i in range(N):
+        for j in range(A[i]+1):
+            if i+j in dict: 
+                dict[i+j].append(i)
+                res += 1
+            else:
+                dict[i+j] = [i]
+                
+            
+            if j > 0:
+                if i-j in dict:
+                    dict[i-j].append(i)
+                    res += 1
+                else:
+                    dict[i-j] = [i]
+                
+            if res > 10000000: 
+                return -1
+
+    for k,v in dict.items():
+        if len(v) > 1 :
+            v = list(set(v))
+            result.extend([(a, b) for idx, a in enumerate(v) for b in v[idx + 1:]])
+
+    result = list(set(result))
+    return len(result)
 
 print(solution([1,5,2,1,4,0]))
 
+print(solution([]))
+
+print(solution([1]))
+
+print(solution([25,58,54,754,321,28,278,221,136]))
+
+
+print(solution([0,1]))
+print(solution([0, 0]))
+print(solution([1,0,0,3]))
