@@ -17,21 +17,27 @@ the function should return 0, as explained above.
 
 def solution(S):
     dict = {"]":"[", "}":"{", ")":"("}
-    li = ["]","[", "}","{", ")","("]
+    brack = ["]","[", "}","{", ")","("]
     res = []
     for car in S:
-        if car not in li:
-            return False
+        if car not in brack:
+            return 0
             
         if car in dict.keys():
             if not res or dict[car] != res.pop(): 
-                return False
+                return 0
         elif car in dict.values():
             res.append(car)
-    return len(res) == 0
+    return 1 if len(res) == 0 else 0
 
 
 
 print(solution("{[()()]}"))
 
 print(solution("([)()]"))
+
+print(solution(""))
+
+print(solution("({[]})({[]})"))
+
+print(solution("[]{[}]([[)][)"))
