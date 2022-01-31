@@ -36,3 +36,12 @@ Write a function:
 
 that, given two non-empty arrays A and B consisting of N integers, returns the number of fish that will stay alive.
 """
+
+def solution(A, B):
+    N = len(A)
+    if len(B) != N:
+        return 0
+
+
+print(solution([4,3,2,1,5],[0,1,0,0,0]))
+
