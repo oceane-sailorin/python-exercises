@@ -41,7 +41,32 @@ def solution(A, B):
     N = len(A)
     if len(B) != N:
         return 0
+    stackfish = []
+    eaten = 0
+    for i in range(N):
+        if B[i] == 1:
+            stackfish.append(A[i])
+        else:
+            while len(stackfish)>0:
+                if A[i] > stackfish[-1]:
+                    stackfish.pop()
+                    eaten += 1
+                else:
+                    eaten += 1
+                    break
+    return N - eaten
 
 
 print(solution([4,3,2,1,5],[0,1,0,0,0]))
 
+print(solution([4,3,2,1,5],[0,0,0,0,0]))
+
+print(solution([4,3,2,1,5],[1,1,0,0,0]))
+
+print(solution([1,2],[0,1]))
+
+print(solution([1],[1]))
+
+print(solution([],[]))
+
+print(solution([9,6,3,8,5,2,7,4,1,12,14,16,18,10,13,15,17,11,19],[0,1,1,0,1,0,1,0,1,1,1,1,0,0,0,1,0,0,1]))
