@@ -32,10 +32,15 @@ def solution(S):
         elif car in dict.values():
             res.append(car)
     return 1 if len(res) == 0 else 0
-   
+
+
 
 print(solution("(()(())())"))
 
 print(solution("())"))
 
 print(solution(""))
+
+print(solution("(())(())()((()))((()()())())"))
+
+print(solution("(())(())()((()))((()()())("))
