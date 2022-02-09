@@ -23,18 +23,25 @@ the function should return 7.
 
 def solution(H):
     N = len(H)
-    if N == 0: return 0
-    elif N == 1: return 1
+    if N <= 1: return N
     stack = []
     block_count = 0   
     for height in H:
-        while len(stack) != 0 and height < stack[-1]:
+        while len(stack) != 0 and stack[-1] > height:
             stack.pop()
+        if len(stack) != 0 and stack[-1] == height:
+            pass
+        else:
             block_count += 1
-        if len(stack) == 0 or height > stack[-1]:
             stack.append(height)
-            
-    block_count += len(stack)
+
     return block_count
 
-print(solution("[8,8,5,7,9,8,7,4,8]"))
+print(solution([8,8,5,7,9,8,7,4,8]))
+
+print(solution([]))
+
+print(solution([8]))
+
+print(solution([4,9,4,6,3,5,8,12,11,16,14,8,3,15]))
+
