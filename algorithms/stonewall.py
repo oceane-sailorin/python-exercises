@@ -21,21 +21,41 @@ For example, given array H containing N = 9 integers:
 the function should return 7. 
 """
 
-def solution(H):
+def solution2(H):
     N = len(H)
     if N <= 1: return N
     stack = []
-    block_count = 0   
+    count = 0   
     for height in H:
         while len(stack) != 0 and stack[-1] > height:
             stack.pop()
         if len(stack) != 0 and stack[-1] == height:
             pass
         else:
-            block_count += 1
+            count += 1
             stack.append(height)
 
-    return block_count
+    return count
+
+def solution(H):
+    N = len(H)
+    if N <= 1: return N
+    stack = []
+    count = 0   
+    last = 0
+    for i in range(0,N):
+        if H[i] > last:
+            last = H[i]
+            count += 1
+            stack.append(H[i])
+        elif H[i] < last:
+            while len(stack) > 0 and stack[-1] > H[i]:
+                stack.pop()
+            if len(stack) == 0 or stack[-1] != H[i]:
+                count += 1
+                stack.append(H[i])
+            last = H[i]
+    return count
 
 print(solution([8,8,5,7,9,8,7,4,8]))
 
