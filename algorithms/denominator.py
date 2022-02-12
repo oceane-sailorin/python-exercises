@@ -24,6 +24,43 @@ def solution(A):
         return -1
     elif N == 1:
         return 0
+    size = 0
+    for k in range(N):
+        if (size == 0):
+            size += 1
+            value = A[k]
+        else:
+            if (value != A[k]):
+                size -= 1
+            else:
+                size += 1
+    candidate = -1
+    if (size > 0):
+        candidate = value
+    leader = -1
+    count = 0
+    indice = -1
+    for k in range(N):
+        if (A[k] == candidate):
+            count += 1
+            indice = k
+    if (count > N // 2):
+        leader = indice
+    return leader
 
 print(solution([3,4,3,2,3,-1,3,3]))
+
+print(solution([]))
+
+print(solution([3]))
+
+print(solution([-10,6,4,8,-2,-3,5,4]))
+
+print(solution([-10,6,6,6,6,4,6,6,8,-2,-3,5,6,4]))
+
+print(solution([-10,6,6,6,6,4,6,6,8,-2,-3,5,6,6,4]))
+
+
+#[1,1,-1,-1,-1,-1,2] = 4
+#[3, 4, 3, 2, 3, -1, 3, 3]  = 6
 
