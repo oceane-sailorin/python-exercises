@@ -41,6 +41,38 @@ the function should return 2, as explained above.
 
 def solution(A):
     N = len(A)
+    if N == 0:
+        return 0
+    size = 0
+    for k in range(N):
+        if (size == 0):
+            size += 1
+            value = A[k]
+        else:
+            if (value != A[k]):
+                size -= 1
+            else:
+                size += 1
+    candidate = -1
+    if (size > 0):
+        candidate = value
+    leader = -1
+    count = 0
+    for k in range(N):
+        if (A[k] == candidate):
+            count += 1
+    if (count > N // 2):
+        leader = candidate
+    equi_leaders = 0
+    leader_count = 0
+    for k in range(N):
+        if A[k] == leader:
+            leader_count += 1
+        if leader_count > (k+1)//2 and count-leader_count > (N-k-1)//2:
+            equi_leaders += 1
+    return equi_leaders
 
 
 print(solution([4,3,4,4,4,2]))
+
+print(solution([1,2,1,2,1,2,1,2,3,1]))
