@@ -35,13 +35,22 @@ For example, given array A consisting of six elements such that:
 the function should return 356, as explained above.
 """
 
-def solution(A):
+def solution2(A):
     max_profit = 0
     current_max = 0
     for price in reversed(A):
         current_max = max(current_max,price)
         max_profit = max((current_max - price), max_profit)
 
+    return max_profit
+
+def solution(A):
+    N = len(A)
+    max_end = 0
+    max_profit = 0
+    for price in range(1, N):
+        max_end = max(0, max_end + A[price] - A[price - 1])
+        max_profit = max(max_profit, max_end)
     return max_profit
 
 print(solution([23171,21011,21123,21366,21013,21367]))
