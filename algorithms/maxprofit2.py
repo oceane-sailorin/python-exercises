@@ -44,14 +44,14 @@ def solution2(A):
 
     return max_profit
 
+
 def solution(A):
     N = len(A)
-    max_end = 0
-    max_profit = 0
+    max_ending = max_slice = 0
     for price in range(1, N):
-        max_end = max(0, max_end + A[price] - A[price - 1])
-        max_profit = max(max_profit, max_end)
-    return max_profit
+        max_ending = max(0, max_ending + A[price] - A[price - 1])
+        max_slice = max(max_slice, max_ending)
+    return max_slice
 
 print(solution([23171,21011,21123,21366,21013,21367]))
 
