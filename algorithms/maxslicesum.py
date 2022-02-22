@@ -22,6 +22,10 @@ the function should return 5 because:
         no other slice of A has sum greater than (0, 1).
 
 """
+#For each position, we compute the largest sum that ends in that position. 
+# If we assume that the maximum sum of a slice ending in position i equals max_ending, 
+# then the maximum slice ending in position i+1 equals max(0, max_ending + A[i+1] )
+
 def solution(A):
     N = len(A)
     max_ending = max_slice = 0
