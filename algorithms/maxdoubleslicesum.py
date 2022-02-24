@@ -44,6 +44,29 @@ the function should return 17, because no double slice of array A has a sum of g
 """
 
 def solution(A):
-    return 0
+    N = len(A)
+    if N <= 3:
+        return 0
+    forward = N * [0]
+    backward = N * [0]
+    max_sum = 0
+    for i in range(1, N-1):
+        max_sum += A[i]
+        if max_sum < 0:
+            max_sum = 0
+        forward[i] = max_sum
+
+    max_sum = 0
+    for i in range(N-2, 0, -1):
+        max_sum += A[i]
+        if max_sum < 0:
+            max_sum = 0
+        backward[i] = max_sum
+
+    max_sum = 0
+    for i in range(0, N-2):
+        max_sum = max(max_sum, forward[i]+ backward[i+2])
+        
+    return max_sum
 
 print(solution([3,2,6,-1,4,5,0-1,2]))
