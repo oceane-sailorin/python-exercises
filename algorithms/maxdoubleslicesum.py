@@ -49,24 +49,38 @@ def solution(A):
         return 0
     forward = N * [0]
     backward = N * [0]
+    slice_sum = 0
+    #go through list forward excluding first and last elements and update slice_sum
+    #as soon as sum is < 0, we start a new slice and sum restarts  ( =0)
+    for i in range(1, N-1):
+        slice_sum += A[i]
+        if slice_sum < 0:
+            slice_sum = 0
+        forward[i] = slice_sum
+    
+    #go through list backward excluding last 2 elements and update slice_sum
+    #as soon as sum is < 0, we start a new slice and sum restarts  ( =0)
+    slice_sum = 0
+    for i in range(N-2, 0, -1):
+        slice_sum += A[i]
+        if slice_sum < 0:
+            slice_sum = 0
+        backward[i] = slice_sum
+
+    #iterate through list excluding first and last elements
+    #find the best combination of forward slice sum + backward slice sum
+    # the 2 selected slice sums should not overlap or be adjacent to one another 
+    # the double slice should not include forward[i] nor backward[i] (X, Y, Z are excluded) so we use forward[i-1] and backward[i+1]
     max_sum = 0
     for i in range(1, N-1):
-        max_sum += A[i]
-        if max_sum < 0:
-            max_sum = 0
-        forward[i] = max_sum
+        max_sum = max(max_sum, forward[i-1] + backward[i+1])
 
-    max_sum = 0
-    for i in range(N-2, 0, -1):
-        max_sum += A[i]
-        if max_sum < 0:
-            max_sum = 0
-        backward[i] = max_sum
-
-    max_sum = 0
-    for i in range(0, N-2):
-        max_sum = max(max_sum, forward[i]+ backward[i+2])
-        
     return max_sum
 
 print(solution([3,2,6,-1,4,5,0-1,2]))
+
+print(solution([0,0,0]))
+
+print(solution([3,-3,5,-5,4,-4,8,-8,7,-7,1,-1,0,3,-3]))
+
+print(solution([5,9,8,4,1,2,6,3,5,2,4,-8,-2,-5,-6,-1,-3,-4,5,6]))
