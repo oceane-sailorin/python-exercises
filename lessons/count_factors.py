@@ -14,6 +14,12 @@ For example, given N = 24, the function should return 8, because 24 has 8 factor
 namely 1, 2, 3, 4, 6, 8, 12, 24. There are no other factors of 24.
 """
 
+#Based on one divisor, we can find the symmetric divisor. 
+# More precisely, if number a is a divisor of n, then n/a is also a divisor.
+# One of these two divisors is less than or equal to √n. 
+# If that were not the case, n would be 
+# a product of two numbers greater than √n, which is impossible.
+
 def solution(N):
     i = 1
     result = 0
@@ -32,4 +38,9 @@ print(solution(11))
 
 print(solution(15))
 
-#2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97
+print(solution(89))
+
+print(solution(71))
+
+print(solution(2687530))
+
