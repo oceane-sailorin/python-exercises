@@ -47,3 +47,11 @@ def solution(N):
 print(solution(30))
 
 print(solution(16))
+
+print(solution(1))
+
+print(solution(12587))
+
+print(solution(81))
+
+print(solution(244))
