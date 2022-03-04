@@ -74,12 +74,24 @@ def solution(A):
     
     print(peaks)
     lenf = len(peaks)
-    flags = lenf
-    for p in range(1,lenf):
-        print(flags)
-        diffp = abs(peaks[p] - peaks[p-1])
+    if lenf == 0:
+        return 0
+    elif lenf == 1:
+        return 1
+    
+    diffp = 1
+    flags = 0
+    for p in range(min(lenf,int(N**0.5))+1 ,0, -1):
+        lastflag = 0
+        diffp = 1
+        for i in range(1,lenf):
+            if abs(peaks[i] - peaks[lastflag]) >= p and diffp < p:
+                diffp += 1
+                lastflag = i
         if diffp < flags:
-            flags = diffp
+            return flags
+        elif flags < diffp:
+            flags = diffp 
     return flags
         
 
