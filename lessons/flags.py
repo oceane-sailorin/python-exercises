@@ -65,6 +65,7 @@ def solution(A):
     peaks = []
     if N < 3:
         return 0
+    #count number of peaks
     for i in range(1,N-1):
         if A[i-1]< A[i] and A[i+1] < A[i]:
             peaks.append(i)
@@ -79,19 +80,43 @@ def solution(A):
     elif lenf == 1:
         return 1
     
-    diffp = 1
+    #we bring unknown number of flags = flags
+    #each peak where to set flag is separated from next peak where to set flag by a distance
+    # number of distances needed = flags - 1
+    # each distance must have a length of flags
+    # sum of distances must fit in N
+    # (flags - 1) * flags <= N almost equivalent to flags ** 2 <= N so flags <= square root of N
+    # flags should also <= lenf (number of peaks)
+    # so flags <= min between lenf and sqrt of N
+    # if does fit, decrement number of flags by 1
+    # == limit number of iterations by starting with max possible number and decrement 
+    currentflags = 1
+    #max number of flags determined so far
     flags = 0
+    #loop on min between lenf and sqrt of N and add + 1 because of int casting
+    #start with higher value and decrement
     for p in range(min(lenf,int(N**0.5))+1 ,0, -1):
+        #last flag to have been set
         lastflag = 0
-        diffp = 1
+        #number of flags already set
+        currentflags = 1
+        #iterate on all peaks
         for i in range(1,lenf):
-            if abs(peaks[i] - peaks[lastflag]) >= p and diffp < p:
-                diffp += 1
+            # 2 conditions : distance between 2 peaks is >= p number of flags 
+            # and number of flags already set < p number of flags
+            if abs(peaks[i] - peaks[lastflag]) >= p and currentflags < p:
+                #set a flag
+                currentflags += 1
+                #update position of last flag set
                 lastflag = i
-        if diffp < flags:
+        # if current number of flags is < max number of flags determined so far
+        # no need to continue because next loop will decrement: so max found
+        if currentflags < flags:
             return flags
-        elif flags < diffp:
-            flags = diffp 
+        #else if current number of flags still greater than max number of flags determined so far
+        #so update max number of flags determined so far
+        elif flags < currentflags:
+            flags = currentflags 
     return flags
         
 
