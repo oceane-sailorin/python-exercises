@@ -39,5 +39,34 @@ the function should return [2, 4, 3, 2, 0], as explained above.
 """
 
 def solution(A):
+    N = len(A)
+    maxa = max(A)
+  
+    #count number of each number
+    dict = {}
+    for a in A:
+        if a not in dict:
+            dict[a] = 1
+        else:
+            dict[a] += 1
+  
+    #get divisor 1 for all
+    divisors = {}
+    for a in A:
+        divisors[a] = set([1, a])
+
+    #Sieve of Eratosthenes
+    i = 2
+    while (i * i <= maxa):
+        k = i
+        while (k <= maxa):
+            if k in divisors and not i in divisors[k]:
+                divisors[k].add(i)
+                divisors[k].add(k//i)
+            k += i
+        i += 1
+
+    result = [0] * N    
+    return result 
 
 print(solution([3,1,2,3,6]))
