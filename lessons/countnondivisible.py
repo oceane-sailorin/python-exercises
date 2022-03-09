@@ -40,6 +40,9 @@ the function should return [2, 4, 3, 2, 0], as explained above.
 
 def solution(A):
     N = len(A)
+    if N == 0:
+        return []
+    # get max number
     maxa = max(A)
   
     #count number of each number
@@ -56,6 +59,9 @@ def solution(A):
         divisors[a] = set([1, a])
 
     #Sieve of Eratosthenes
+    #every composite number has a divisor of at most √maxa. 
+    # In particular, it has a divisor which is a prime number. 
+    # It is sufficient to remove only multiples of prime numbers not exceeding √maxa
     i = 2
     while (i * i <= maxa):
         k = i
@@ -66,7 +72,18 @@ def solution(A):
             k += i
         i += 1
 
-    result = [0] * N    
+    # result for each element of A = N - number of ocurrences of its divisors
+    result = [0] * N   
+    for i, a in enumerate(A):
+        result[i] = (N-sum([dict.get(divisor,0) for divisor in divisors[a]]))
+   
     return result 
 
+
 print(solution([3,1,2,3,6]))
+
+print(solution([3]))
+
+print(solution([]))
+
+print(solution([2,8,4,5,6,3,2,1,2,5,4,1,3,2,5]))
