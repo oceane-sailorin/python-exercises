@@ -36,6 +36,15 @@ the function should return the values [10, 4, 0], as explained above.
 """
 
 def solution(N, P, Q):
+    primes = [1] * (N+1)
+    primes[0] = primes[1] = 0
+    for i in range(2, int(N**0.5)+1):
+        if primes[i]:
+            k = i * i
+            while k <= N:
+                primes[k] = 0
+                k += i
+
     return True
 
 print(solution(26,[1,4,16],[26,10,20]))
