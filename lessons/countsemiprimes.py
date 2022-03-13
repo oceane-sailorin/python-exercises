@@ -44,6 +44,13 @@ def solution(N, P, Q):
             while k <= N:
                 primes[k] = 0
                 k += i
+    semiprimestotal = [0] * (N + 1)
+    for i in range(0,N+1):
+        for j in range(0,N+1):
+            if primes[i] and primes[j] and i*j <= N:
+                semiprimestotal[i*j] = 1
+            if i * j > N:
+                break
 
     return True
 
