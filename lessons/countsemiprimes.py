@@ -38,8 +38,11 @@ the function should return the values [10, 4, 0], as explained above.
 def solution(N, P, Q):
     primes = [1] * (N+1)
     primes[0] = primes[1] = 0
+    #find primes
+    # we can stop at sqrt of N ((i * i) < N) + 1 in case sqrt not int
     for i in range(2, int(N**0.5)+1):
         if primes[i]:
+            #we start at i * i and then add next i
             k = i * i
             while k <= N:
                 primes[k] = 0
@@ -51,6 +54,13 @@ def solution(N, P, Q):
                 semiprimestotal[i*j] = 1
             if i * j > N:
                 break
+    semiprimes = [0] * len(P)
+    cumulsemiprimes = [0] * N + 1
+    s = 0
+
+    for i in range(0,N+1):
+        s += semiprimestotal[i]
+        cumulsemiprimes[i] = s
 
     return True
 
