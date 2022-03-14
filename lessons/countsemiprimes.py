@@ -43,25 +43,42 @@ def solution(N, P, Q):
     for i in range(2, int(N**0.5)+1):
         if primes[i]:
             #we start at i * i and then add next i
+            #k is not a prime anymore: it is the product of 2 elements
             k = i * i
             while k <= N:
                 primes[k] = 0
                 k += i
+    #initialize with 0
     semiprimestotal = [0] * (N + 1)
     for i in range(0,N+1):
         for j in range(0,N+1):
+            # both i and j are prime numbers and still within the boundaries
             if primes[i] and primes[j] and i*j <= N:
+                #change value of semiprimetotal of sum of i and j to 1
                 semiprimestotal[i*j] = 1
+            # boundaries reached
             if i * j > N:
                 break
+    # list to put results
+    # number of semiprimes within the range (P[K], Q[K]), where 1 ≤ P[K] ≤ Q[K] ≤ N
     semiprimes = [0] * len(P)
-    cumulsemiprimes = [0] * N + 1
+    cumulsemiprimes = [0] * (N + 1)
     s = 0
 
     for i in range(0,N+1):
+        #add to s all the semiprimes reached so far
         s += semiprimestotal[i]
+        #insert the sum in cumulsemiprimes array at position i
         cumulsemiprimes[i] = s
 
-    return True
+    for i in range(0,len(P)):
+        #add difference between 2 cumulative values semiprimes array at position i
+        semiprimes[i] = cumulsemiprimes[Q[i]] - cumulsemiprimes[P[i]-1]
+
+    return semiprimes
 
 print(solution(26,[1,4,16],[26,10,20]))
+
+print(solution(12,[4,6,5],[11,9,8]))
+
+print(solution(265,[8,6,5,4,1,2,5,6,3,6,5,8],[14,85,75,63,95,98,45,36,12,36,32,26]))
