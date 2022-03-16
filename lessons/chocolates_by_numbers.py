@@ -35,3 +35,7 @@ def solution(N, M):
 
 print(solution(10,4))
 
+print(solution(0,6))
+
+print(solution(125,158))
+
