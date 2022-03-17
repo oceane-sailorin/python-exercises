@@ -25,12 +25,18 @@ that, given two positive integers N and M, returns the number of chocolates that
 For example, given integers N = 10 and M = 4. the function should return 5, as explained above.
 """
 def gcd(a, b):
+    # greatest common divider
+    # we continue to call gcd until remain until remainer of a / b = 0
     if a % b == 0:
         return b
     return gcd(b, a % b)
 
 def solution(N, M):
-    #lcm = N * M / gcd(N,M)
+    # no problem of divide by 0 => N and M > 0
+    #least common multiple = N * M / greatest common divider
+    #lcm = N * M / gcd(N,M) 
+    # number of eaten chocolates = lcm / M (step)
+    # number of chocolates = (N * M / gcd(N,M)) / M => N / gcd(N,M)
     return int(N / gcd(N,M))
 
 print(solution(10,4))
@@ -38,4 +44,11 @@ print(solution(10,4))
 print(solution(0,6))
 
 print(solution(125,158))
+
+print(solution(8,12))
+
+print(solution(85478562,236521458))
+
+
+
 
