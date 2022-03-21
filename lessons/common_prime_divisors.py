@@ -35,14 +35,18 @@ def gcd(a, b):
 def solution(A,B):
     #find prime factor that is not common to both numbers
     N = len(A)
-    A / gcd(A,B) 
-    while x != 1:
-        gcd_value = gcd(A, y)
-        if gcd_value == 1:
-            # x does not contain any more
-            # common prime divisors
-            break
-        x /= gcd_value
+    countk = 0
+    for i in range (1,N):
+        x = A[i]
+        y = B[i]
+        greatest = gcd(A,B) 
+        while x != 1:
+            gcd_value = gcd(A, y)
+            if gcd_value == 1:
+                # x does not contain any more
+                # common prime divisors
+                break
+            x /= gcd_value
     
 
 print(solution([15,10,3],[75,30,5]))
