@@ -25,6 +25,24 @@ For example, given:
 
 the function should return 1, because only one pair (15, 75) has the same set of prime divisors.
 """
+def gcd(a, b):
+    # greatest common divider
+    # we continue to call gcd until remain until remainer of a / b = 0
+    if a % b == 0:
+        return b
+    return gcd(b, a % b)
+
 def solution(A,B):
+    #find prime factor that is not common to both numbers
+    N = len(A)
+    A / gcd(A,B) 
+    while x != 1:
+        gcd_value = gcd(A, y)
+        if gcd_value == 1:
+            # x does not contain any more
+            # common prime divisors
+            break
+        x /= gcd_value
+    
 
 print(solution([15,10,3],[75,30,5]))
