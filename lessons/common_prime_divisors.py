@@ -36,17 +36,18 @@ def solution(A,B):
     #find prime factor that is not common to both numbers
     N = len(A)
     countk = 0
-    for i in range (1,N):
+    for i in range (0,N):
         x = A[i]
         y = B[i]
-        greatest = gcd(A,B) 
-        while x != 1:
-            gcd_value = gcd(A, y)
-            if gcd_value == 1:
-                # x does not contain any more
-                # common prime divisors
-                break
-            x /= gcd_value
+        greatest = gcd(x,y) 
+        while gcd(x,greatest) != 1:
+            x /= gcd(x, greatest)
+        while gcd(y,greatest) != 1:
+            y /= gcd(y, greatest)
+        if x == 1 and y == 1:
+            countk += 1
+    return countk
+           
     
 
 print(solution([15,10,3],[75,30,5]))
