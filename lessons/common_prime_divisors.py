@@ -51,3 +51,7 @@ def solution(A,B):
     
 
 print(solution([15,10,3],[75,30,5]))
+
+print(solution([15,89,63],[80,26,35]))
+
+print(solution([5,10,15,20,25,30],[4,6,8,10,12,14]))
