@@ -50,8 +50,28 @@ For example, given:
 
 the function should return 3, as explained above.
 """
+# Finding Fibonacci numbers dynamically
+# We can calculate the values F 0 , F 1 , . . . , F n based on the previously calculated numbers 
+# (it is sufficient to remember only the last two values)
+def fibonacciDynamic(n):
+    fib = [0] * (n + 2)
+    fib[1] = 1
+    for i in range(2, n + 1):
+        fib[i] = fib[i - 1] + fib[i - 2]
+    return fib[n]
+    
+def solution(A):
+    n = len(A)
+    positions = X
+    #count = [0 for _ in range(X + 1)]
+    count = [0] * (X + 1)
+    for k in range(n):
+        if A[k] <= X: 
+            count[A[k]] += 1
+            if count[A[k]] == 1: 
+                positions -= 1
+                if positions == 0: return k
 
-def solution(A)
-
+    return -1
 
 print(solution([0,0,0,1,1,0,1,0,0,0,0]))
