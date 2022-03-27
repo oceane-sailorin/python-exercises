@@ -59,19 +59,20 @@ def fibonacciDynamic(n):
     for i in range(2, n + 1):
         fib[i] = fib[i - 1] + fib[i - 2]
     return fib[n]
-    
+
 def solution(A):
+    A.append(1)
     n = len(A)
-    positions = X
-    #count = [0 for _ in range(X + 1)]
-    count = [0] * (X + 1)
-    for k in range(n):
-        if A[k] <= X: 
-            count[A[k]] += 1
-            if count[A[k]] == 1: 
-                positions -= 1
-                if positions == 0: return k
+    fibo = fibonacciDynamic(n)
+    steps = [0] * n
+    for i in fibo:
+        if A[i-1] == 1:
+            steps[i-1] = 1
+    for i in range(n):
+        if A[i] == 0 or steps[i] > 0:
+            continue
 
     return -1
+    
 
 print(solution([0,0,0,1,1,0,1,0,0,0,0]))
