@@ -71,6 +71,17 @@ def solution(A):
     for i in range(n):
         if A[i] == 0 or steps[i] > 0:
             continue
+        mini = -1
+        minv = 100000
+        for j in fibo:
+            previousi = i - j
+            if previousi < 0:
+                break
+            if steps[previousi] > 0 and minv > steps[previousi]:
+                minv = steps[previousi]
+                mini = previousi
+        if mini != -1:
+            steps[i] = minv + 1
 
     return -1
     
