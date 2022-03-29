@@ -56,9 +56,10 @@ the function should return 3, as explained above.
 def fibonacciDynamic(n):
     fib = [0] * (n + 2)
     fib[1] = 1
-    for i in range(2, n + 1):
+    for i in range(2, (n + 1)):
         fib[i] = fib[i - 1] + fib[i - 2]
-    return fib[n]
+        if fib[i] > n:
+            return fib[2:i]
 
 def solution(A):
     A.append(1)
@@ -82,8 +83,19 @@ def solution(A):
                 mini = previousi
         if mini != -1:
             steps[i] = minv + 1
-
+    if steps[n-1] > 0:
+        return steps[n-1]
     return -1
     
 
 print(solution([0,0,0,1,1,0,1,0,0,0,0]))
+
+print(solution([0,0,0,0,1,0,0,0,1,1,1,1,0,0,0,0,1,0,1,1,1,0,0,0,1,1,0,1,1,0,1,0,1,0,1,1,1,1,1,0,0,0,0]))
+
+print(solution([0,0,0,0,1]))
+
+print(solution([0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,1,1,0,0,0,0,1,0,1,0,1,0,1,1,0,0,0,1,1,0]))
+
+print(solution([0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0]))
+
+print(solution([1,1,1,1,1]))
