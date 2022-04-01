@@ -59,19 +59,29 @@ def fibonacciDynamic(n):
     for i in range(2, (n + 1)):
         fib[i] = fib[i - 1] + fib[i - 2]
         if fib[i] > n:
+            # do not need 2 first fibonacci numbers
             return fib[2:i]
 
 def solution(A):
+    # need to reach position len(A) + 1    
     A.append(1)
     n = len(A)
+    #compute fibonacci numbers in array of length n
     fibo = fibonacciDynamic(n)
+    # inititalize new array
     steps = [0] * n
+    # interested in leaves reached in one single step in newly defined array steps
     for i in fibo:
         if A[i-1] == 1:
+            #replace by 1 when possible one single step
             steps[i-1] = 1
+
+    # then find leaves we can reach in more than one step by starting from position with 1 in array A 
     for i in range(n):
+        # if no leaf or already compute in single step
         if A[i] == 0 or steps[i] > 0:
             continue
+        #initialize min and min value of the staps (max number of n)
         mini = -1
         minv = 100000
         for j in fibo:
@@ -84,10 +94,17 @@ def solution(A):
         if mini != -1:
             steps[i] = minv + 1
     if steps[n-1] > 0:
+        #return minimun number of jumps
         return steps[n-1]
     return -1
-    
 
+
+
+
+# and go back to each possible fibonacci number lower than position to check if exist 1  with a fibonacci number step
+# until new position reached is -1
+# loop on all the 1 position 
+# and put in number of step each time reach a possibility
 print(solution([0,0,0,1,1,0,1,0,0,0,0]))
 
 print(solution([0,0,0,0,1,0,0,0,1,1,1,1,0,0,0,0,1,0,1,1,1,0,0,0,1,1,0,1,1,0,1,0,1,0,1,1,1,1,1,0,0,0,0]))
