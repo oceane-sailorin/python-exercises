@@ -84,27 +84,30 @@ def solution(A):
         #initialize min and min value of the staps (max number of n)
         mini = -1
         minv = 100000
+        # iterate all the fibonacci numbers for a particular position i
         for j in fibo:
+            # check if previous index cannot be reached within a fibonacci jump
+            # go back to each possible fibonacci number lower than position to check if exist 1  with a fibonacci number step
             previousi = i - j
             if previousi < 0:
                 break
+            #otherwise if array value of previous index is positive (intermediate leaf) and minimum value of steps is greater  than array value of previous index 
             if steps[previousi] > 0 and minv > steps[previousi]:
+                #update minimum of steps
                 minv = steps[previousi]
+                #update index of minimum of steps
                 mini = previousi
+        #check if index minimum of steps is not beyond the starting point
         if mini != -1:
+            #of ok, add one step to number of steps because a possibility has been reached
             steps[i] = minv + 1
+    #when loop on all the 1 position ended and number of steps positive number
     if steps[n-1] > 0:
         #return minimun number of jumps
         return steps[n-1]
     return -1
 
 
-
-
-# and go back to each possible fibonacci number lower than position to check if exist 1  with a fibonacci number step
-# until new position reached is -1
-# loop on all the 1 position 
-# and put in number of step each time reach a possibility
 print(solution([0,0,0,1,1,0,1,0,0,0,0]))
 
 print(solution([0,0,0,0,1,0,0,0,1,1,1,1,0,0,0,0,1,0,1,1,1,0,0,0,1,1,0,1,1,0,1,0,1,0,1,1,1,1,1,0,0,0,0]))
