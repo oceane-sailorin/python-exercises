@@ -32,7 +32,8 @@ Write a function:
 
     def solution(A, B)
 
-that, given two non-empty arrays A and B of L integers, returns an array consisting of L integers specifying the consecutive answers; position I should contain the number of different ways of climbing the ladder with A[I] rungs modulo 2B[I].
+that, given two non-empty arrays A and B of L integers, returns an array consisting of L integers specifying the consecutive answers; 
+position I should contain the number of different ways of climbing the ladder with A[I] rungs modulo 2B[I].
 
 For example, given L = 5 and:
     A[0] = 4   B[0] = 3
@@ -61,6 +62,22 @@ def solution(A, B):
         res[i] = fibo[A[i]+1] & ((1<<B[i])-1)
     return res
 
+
+def solution2(A, B):
+    N = len(A)
+    maxa = max(A)
+    maxb = max(B)
+    res = [0] * N
+    fibo = [0] * (maxa+2)
+    fibo[1] = 1
+    for i in range(2, maxa + 2):
+        fibo[i] = (fibo[i - 1] + fibo[i - 2])
+        # To climb to A[i] rungs, come from A[i]-1 for 1 step or A[i]-2 for 2 steps
+        #  number of different ways of climbing to the top of the ladder is the Fibonacci number at position A[i] + 1
+    for i in range(N):
+        res[i] = fibo[A[i]+1] & (2**B[i]-1)
+    return res
+
 print(solution([4,4,5,5,1],[3,2,4,3,1]))
 
 print(solution([4,3,2,1,0],[0,1,2,3,4]))
@@ -69,3 +86,14 @@ print(solution([5,5,5,5,5],[8,8,8,8,8]))
 
 print(solution([8,4,2,6,1,3,5,4,7,8,5,4],[3,6,5,8,9,4,5,2,1,5,6,5]))
 
+print(solution([89,47,258,62513,11459,31523,51523,4487,7145,8365,5941,4487],[62,65,5,8,9,4,9,2,1,5,68,6]))
+
+print(solution2([4,4,5,5,1],[3,2,4,3,1]))
+
+print(solution2([4,3,2,1,0],[0,1,2,3,4]))
+
+print(solution2([5,5,5,5,5],[8,8,8,8,8]))
+
+print(solution2([8,4,2,6,1,3,5,4,7,8,5,4],[3,6,5,8,9,4,5,2,1,5,6,5]))
+
+print(solution2([89,47,258,62513,11459,31523,51523,4487,7145,8365,5941,4487],[62,65,5,8,9,4,9,2,1,5,68,6]))
