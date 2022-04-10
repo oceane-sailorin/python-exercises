@@ -36,7 +36,7 @@ Write a function:
 that, given integers K, M and a non-empty array A consisting of N integers, returns the minimal large sum.
 """
 
-def number_of_blocks(A, K, maxsize):
+def number_of_blocks(A, maxsize):
     # number of blocks A can be divided to
     # sum of a block < maxsize
     num = 1    
@@ -52,22 +52,26 @@ def number_of_blocks(A, K, maxsize):
 
 def solution(K, M, A):
     n = len(A)
-    beg = 0
-    end = n - 1
+    num_blocks = 0
+    result = 0
     maxa = max(A)
     suma = sum(A)
     if K == 1:
         return suma
     if K >= n:
         return maxa
-    result = -1
-    while (beg <= end):
-        mid = (beg + end) // 2
-        if (A[mid] <= K):
-            beg = mid + 1
+   
+    while (maxa <= suma):
+        mid = (maxa + suma) // 2
+        num_blocks = number_of_blocks(A, mid)
+        if (num_blocks <= K):
+            suma = mid - 1
             result = mid
         else:
-            end = mid - 1
+            maxa = mid + 1
+
+    return result 
+
 
 
 print(solution(3,5,[2,1,5,1,2,2,2]))
