@@ -29,6 +29,7 @@ For example, given array A such that:
 the function should return 5, as explained above.
     """
 def solution(A):
-    return -1
+    return len(set([abs(x) for x in A]))
 
+    
 print(solution([-5,-3,-1,0,3,6]))
