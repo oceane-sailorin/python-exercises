@@ -26,6 +26,19 @@ def solution(A):
 def solution2(A):
     return len(set([a*a for a in A]))
 
+#caterpillar algorithm
+def solution3(A):
+    #counter
+    c = 1
+    #max between forst and last element of array
+    mymax = max(abs(A[0]),abs(A[-1]))
+    index_head = 0
+    index_tail = len(A) - 1
+    while index_head <= index_tail:
+        head = abs(A[index_head])
+        if head == mymax:
+            index_head += 1
+            continue
 
 print(solution([-5,-3,-1,0,3,6]))
 print(solution2([-5,-3,-1,0,3,6]))
