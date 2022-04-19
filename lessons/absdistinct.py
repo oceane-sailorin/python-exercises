@@ -32,23 +32,34 @@ def solution3(A):
     counter = 1
     #max between first and last element of array
     maxarray = max(abs(A[0]),abs(A[-1]))
-    index_beg = 0
-    index_end = len(A) - 1
-    while index_beg <= index_end:
-        beg = abs(A[index_beg])
-        if beg == maxarray:
-            index_beg += 1
+    #index of caterpillar front
+    index_front = 0
+    #index of caterpillar back
+    index_back = len(A) - 1
+    #shrink caterpillar between front and back
+    while index_front <= index_back:
+        #value of position front of array
+        front = abs(A[index_front])
+        if front == maxarray:
+            #move index to next element
+            index_front += 1
             continue
-        end = abs(A[index_end])
-        if end == maxarray:
-            index_end -= 1
+        #value of position back of array
+        back = abs(A[index_back])
+        # if front value not equal to max, try to find if back is = to the max value
+        if back == maxarray:
+            #move index to previous element
+            index_back -= 1
             continue
-        if beg >= end:
-            maxarray = beg
-            index_beg += 1
+        # if front greater than back, change the max value and move index to next element
+        # otherwise back is greater than front then move index to previous element
+        if front >= back:
+            maxarray = front
+            index_front += 1
         else:
-            maxarray = end
-            index_end -= 1
+            maxarray = back
+            index_back -= 1
+        #if we arrive here it means than we have distinct value for the element
         counter += 1
     return counter
         
