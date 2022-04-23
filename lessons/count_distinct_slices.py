@@ -42,23 +42,29 @@ def solution(M, A):
     back = 0
     mylist = [False] * (M+1)
     slices = 0
-   
-    while (front < N and back < N and mylist[A[front]] != True):
-        slices += (front-back+1)
-        mylist[A[front]] = True
-        front += 1
-        if slices > 1000000000:
-            return 1000000000
-    else:
-        while front < N and back < N and A[back] != A[front]:
+    while (front < N and back < N):
+        #caterpillar to the back while duplicate is found
+        #back side to retract while duplicate is removed
+        while (front < N  and mylist[A[front]] != True):
+            slices += (front-back+1)
+            mylist[A[front]] = True
+            front += 1
+            if slices > 1000000000:
+                return 1000000000
+        else:
+            while front < N and back < N and A[back] != A[front]:
+                mylist[A[back]] = False
+                back += 1
+                 
             mylist[A[back]] = False
             back += 1
-                
-        mylist[A[back]] = False
-        back += 1
 
     
     return slices
 
 
+
 print(solution(6,[3,4,5,5,2]))
+print(solution(25,[12,14,20,15,16,18,6,23,24,10,11,16,15,18,19]))
+print(solution(236,[65,36,26,85,74,26,59,85,34,12,96,72,82,152,163,145,125,186,123,176,1,148,2]))
+print(solution(1,[0,0,0,0]))
