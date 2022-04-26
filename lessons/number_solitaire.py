@@ -42,5 +42,9 @@ that, given a non-empty array A of N integers, returns the maximal result that c
 def solution(A):
     dice = 6
     n = len(A)
-
+    maxres = [A[0]] * dice
+    for p in range(1, n):
+        maxres[p % dice] = max(maxres) + A[p]
+    return maxres[(n - 1) % dice]
+    
 print(solution([1,-2,0,9,-1,-2]))    
