@@ -40,11 +40,20 @@ that, given a non-empty array A of N integers, returns the maximal result that c
 """
 
 def solution(A):
+    #dice can only have 1 to 6 values
     dice = 6
     n = len(A)
+    #initialize new array
     maxres = [A[0]] * dice
     for p in range(1, n):
+        #we only count max values from last 6 indexes and A value at p to the max value so far
         maxres[p % dice] = max(maxres) + A[p]
     return maxres[(n - 1) % dice]
-    
+
+ 
+
 print(solution([1,-2,0,9,-1,-2]))    
+
+print(solution([2,5,-3,4,-6,9,-8,3,-7,0,1,6,8,4,-2,10,-11,5,-3,6,2,7,6,9,3,2,5,1,2,3,-5,-3]))     
+
+  
