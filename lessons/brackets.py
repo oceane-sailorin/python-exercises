@@ -43,3 +43,7 @@ print(solution("({[]})({[]})"))
 print(solution("[]{[}]([[)][)"))
 
 print(solution("({[]})AWD({[]})"))
+
+print(solution("[]T{[}]A([[)R][)[)(]{{}}"))
+
+print(solution("({[]})(({{(())}}))({[]})"))
