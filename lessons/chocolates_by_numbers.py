@@ -50,5 +50,7 @@ print(solution(8,12))
 print(solution(85478562,236521458))
 
 
+print(solution(1485236974,1452369754))
+
 
 

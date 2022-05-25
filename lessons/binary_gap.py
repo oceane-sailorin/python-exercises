@@ -42,3 +42,5 @@ print(binary_gap(3))
 print(binary_gap(0))
 
 print(binary_gap(285))
+
+print(binary_gap(254123))
