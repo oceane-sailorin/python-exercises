@@ -55,3 +55,9 @@ print(solution(12587))
 print(solution(81))
 
 print(solution(244))
+
+print(solution(2586))
+
+print(solution(14782365))
+
+print(solution(-12))
