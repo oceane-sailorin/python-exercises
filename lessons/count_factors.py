@@ -44,3 +44,8 @@ print(solution(71))
 
 print(solution(2687530))
 
+print(solution(147852369))
+
+print(solution(45826))
+
+print(solution(6547))
