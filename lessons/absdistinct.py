@@ -65,5 +65,8 @@ def solution3(A):
         
 
 print(solution([-5,-3,-1,0,3,6]))
+print(solution([-89,-63,-12,0,6,78,896,2145]))
 print(solution2([-5,-3,-1,0,3,6]))
+print(solution([-89,-63,-12,0,6,78,896,2145]))
 print(solution3([-5,-3,-1,0,3,6]))
+print(solution([-89,-63,-12,0,6,78,896,2145]))
