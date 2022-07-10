@@ -9,3 +9,4 @@ def near_hundred(n):
     return True
   return False
 
+print(near_hundred(93))
