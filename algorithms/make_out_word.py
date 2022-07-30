@@ -7,3 +7,6 @@ def make_out_word(out, word):
 print(make_out_word('<<>>', 'Yay'))
 print(make_out_word('<<>>', 'WooHoo'))
 print(make_out_word('[[]]', 'word'))
+print(make_out_word('{{}}}', 'remind'))
+print(make_out_word('[[]]', 'sometimes'))
+print(make_out_word('rede', 'ality insi'))
