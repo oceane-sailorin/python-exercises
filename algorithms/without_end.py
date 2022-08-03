@@ -3,7 +3,10 @@
 def without_end(str):
     return str[1:-1]
 
-    
+
 print(without_end('Hello'))
 print(without_end('java'))
 print(without_end('coding'))
+print(without_end(''))
+print(without_end('co'))
+print(without_end('iraybane'))
