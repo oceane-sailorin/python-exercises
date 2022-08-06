@@ -5,3 +5,8 @@ def make_abba(a, b):
 print(make_abba('Hi', 'Bye'))
 print(make_abba('Yo', 'Alice'))
 print(make_abba('What', 'Up'))
+print(make_abba('x', 'y'))
+print(make_abba('x', ''))
+print(make_abba('', 'y'))
+print(make_abba('aaabbbaaa', 'bbbaaabbb'))
+print(make_abba('Ya', 'Bo'))
