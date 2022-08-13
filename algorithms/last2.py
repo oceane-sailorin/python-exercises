@@ -5,7 +5,7 @@ def last2(str):
         return 0
     sub = str[-2:]
     countSub = 0
-    for i in range(1, len(str)-2):
+    for i in range(1, len(str)-1):
         if str[i-1:i+1] == sub:
             countSub += 1
     return countSub
@@ -13,3 +13,4 @@ def last2(str):
 print(last2('hixxhi'))
 print(last2('xaxxaxaxx'))
 print(last2('axxxaaxx'))
+print(last2('xxxx'))
