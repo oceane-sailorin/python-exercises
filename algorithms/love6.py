@@ -7,3 +7,20 @@ def love6(a, b):
 print(love6(6, 4)) #→ True
 print(love6(4, 5)) # → False
 print(love6(1, 5)) # → True
+print(love6(1, 6)) # → True	True	OK	
+print(love6(1, 8) ) #→ False	False	OK	
+print(love6(1, 7)) # → True	True	OK	
+print(love6(7, 5)) # → False	False	OK	
+print(love6(8, 2)) # → True	True	OK	
+print(love6(6, 6)) # → True	True	OK	
+print(love6(-6, 2)) # → False	False	OK	
+print(love6(-4, -10)) # → True	True	OK	
+print(love6(-7, 1)) # → False	False	OK	
+print(love6(7, -1) ) #→ True	True	OK	
+print(love6(-6, 12)) # → True	True	OK	
+print(love6(-2, -4) ) #→ False	False	OK	
+print(love6(7, 1)) # → True	True	OK	
+print(love6(0, 9)) # → False	False	OK	
+print(love6(8, 3)) # → False	False	OK	
+print(love6(3, 3)) #→ True	True	OK	
+print(love6(3, 4)) # → False	False	OK
