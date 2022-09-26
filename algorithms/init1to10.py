@@ -8,3 +8,15 @@ def in1to10(n, outside_mode):
 print(in1to10(5, False)) # → True
 print(in1to10(11, False)) # → False
 print(in1to10(11, True)) # → True
+print(in1to10(10, False)) # → True	True	OK	
+print(in1to10(10, True)) # → True	True	OK	
+print(in1to10(9, False)) # → True	True	OK	
+print(in1to10(9, True)) # → False	False	OK	
+print(in1to10(1, False)) #→ True	True	OK	
+print(in1to10(1, True)) # → True	True	OK	
+print(in1to10(0, False)) # → False	False	OK	
+print(in1to10(0, True)) # → True	True	OK	
+print(in1to10(-1, False)) # → False	False	OK	
+print(in1to10(-1, True)) # → True	True	OK	
+print(in1to10(99, False)) # → False	False	OK	
+print(in1to10(-99, True)) # → True	True	OK
