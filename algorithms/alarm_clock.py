@@ -9,3 +9,9 @@ def alarm_clock(day, vacation):
 print(alarm_clock(1, False)) # → '7:00'
 print(alarm_clock(5, False)) # → '7:00'
 print(alarm_clock(0, False)) # → '10:00'
+print(alarm_clock(6, False)) #→ '10:00'	'10:00'	OK	
+print(alarm_clock(0, True)) # → 'off'	'off'	OK	
+print(alarm_clock(6, True)) # → 'off'	'off'	OK	
+print(alarm_clock(1, True)) # → '10:00'	'10:00'	OK	
+print(alarm_clock(3, True)) # → '10:00'	'10:00'	OK	
+print(alarm_clock(5, True)) # → '10:00'	'10:00'	OK
