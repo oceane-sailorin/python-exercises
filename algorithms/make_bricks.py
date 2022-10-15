@@ -16,3 +16,13 @@ def make_bricks(small, big, goal):
 print(make_bricks(3, 1, 8)) # → True
 print(make_bricks(3, 1, 9)) # → False
 print(make_bricks(3, 2, 10)) # → True
+print(make_bricks(3, 2, 8) ) #→ True	True	OK	
+print(make_bricks(3, 2, 9)) # → False	False	OK	
+print(make_bricks(6, 1, 11)) # → True	True	OK	
+print(make_bricks(6, 0, 11)) # → False	False	OK	
+print(make_bricks(1, 4, 11)) # → True	True	OK	
+print(make_bricks(0, 3, 10)) # → True	True	OK	
+print(make_bricks(1, 4, 12)) # → False	False	OK	
+print(make_bricks(3, 1, 7)) # → True	True	OK	
+print(make_bricks(1, 1, 7)) # → False	False	OK	
+print(make_bricks(2, 1, 7)) # → True	True	OK	
