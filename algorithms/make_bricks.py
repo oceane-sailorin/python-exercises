@@ -26,3 +26,10 @@ print(make_bricks(1, 4, 12)) # → False	False	OK
 print(make_bricks(3, 1, 7)) # → True	True	OK	
 print(make_bricks(1, 1, 7)) # → False	False	OK	
 print(make_bricks(2, 1, 7)) # → True	True	OK	
+print(make_bricks(7, 1, 11)) # → True	True	OK	
+print(make_bricks(7, 1, 8)) # → True	True	OK	
+print(make_bricks(7, 1, 13)) # → False	False	OK	
+print(make_bricks(43, 1, 46)) # → True	True	OK	
+print(make_bricks(40, 1, 46)) # → False	False	OK	
+print(make_bricks(40, 2, 47)) # → True	True	OK	
+print(make_bricks(40, 2, 50) ) #→ True	True	OK	
