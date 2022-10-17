@@ -33,3 +33,12 @@ print(make_bricks(43, 1, 46)) # → True	True	OK
 print(make_bricks(40, 1, 46)) # → False	False	OK	
 print(make_bricks(40, 2, 47)) # → True	True	OK	
 print(make_bricks(40, 2, 50) ) #→ True	True	OK	
+print(make_bricks(40, 2, 52)) # → False	False	OK	
+print(make_bricks(22, 2, 33)) # → False	False	OK	
+print(make_bricks(0, 2, 10)) # → True	True	OK	
+print(make_bricks(1000000, 1000, 1000100)) # → True	True	OK	
+print(make_bricks(2, 1000000, 100003)) # → False	False	OK	
+print(make_bricks(20, 0, 19)) # → True	True	OK	
+print(make_bricks(20, 0, 21)) # → False	False	OK	
+print(make_bricks(20, 4, 51) ) #→ False	False	OK	
+print(make_bricks(20, 4, 39)) # → True
