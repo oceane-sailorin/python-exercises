@@ -3,12 +3,17 @@
 # Return the number of small bars to use, assuming we always use big bars before small bars. 
 # Return -1 if it can't be done.
 def make_chocolate(small, big, goal):
-    if goal > (big * 5) + small or  goal % 5 > small:
+    if goal > (big * 5) + small or goal % 5 > small:
         return -1
     else:
-        return goal % 5
-
+        tmp = goal - min ((big * 5), (goal - goal % 5))
+        if tmp > small:
+            return -1
+        else:
+            return tmp
+     
 
 print(make_chocolate(4, 1, 9)) # → 4
 print(make_chocolate(4, 1, 10)) # → -1
 print(make_chocolate(4, 1, 7)) # → 2
+print(make_chocolate(6, 1, 10)) # → 5
