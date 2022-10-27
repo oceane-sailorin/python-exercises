@@ -8,3 +8,9 @@ def lone_sum(a, b, c):
 print(lone_sum(1, 2, 3)) # → 6
 print(lone_sum(3, 2, 3)) # → 2
 print(lone_sum(3, 3, 3)) # → 0
+print(lone_sum(9, 2, 2)) # → 9	9	OK	
+print(lone_sum(2, 2, 9)) # → 9	9	OK	
+print(lone_sum(2, 9, 2)) # → 9	9	OK	
+print(lone_sum(2, 9, 3)) # → 14	14	OK	
+print(lone_sum(4, 2, 3)) # → 9	9	OK	
+print(lone_sum(1, 3, 1)) #→ 3	3	OK
