@@ -15,3 +15,9 @@ def round_sum(a, b, c):
 print(round_sum(16, 17, 18)) # → 60
 print(round_sum(12, 13, 14)) # → 30
 print(round_sum(6, 4, 4)) # → 10
+print(round_sum(4, 6, 5)) # → 20	20	OK	
+print(round_sum(4, 4, 6)) # → 10	10	OK	
+print(round_sum(9, 4, 4)) # → 10	10	OK	
+print(round_sum(0, 0, 1)) # → 0	0	OK	
+print(round_sum(0, 9, 0)) # → 10	10	OK	
+print(round_sum(10, 10, 19)) # → 40	40	OK
