@@ -26,3 +26,8 @@ print(round_sum(45, 21, 30)) # → 100	100	OK
 print(round_sum(23, 11, 26)) # → 60	60	OK	
 print(round_sum(23, 24, 25)) # → 70	70	OK	
 print(round_sum(25, 24, 25)) # → 80	80	OK
+print(round_sum(23, 24, 29)) # → 70	70	OK	
+print(round_sum(11, 24, 36)) # → 70	70	OK	
+print(round_sum(24, 36, 32)) # → 90	90	OK	
+print(round_sum(14, 12, 26)) # → 50	50	OK	
+print(round_sum(12, 10, 24)) # → 40	40	OK	
