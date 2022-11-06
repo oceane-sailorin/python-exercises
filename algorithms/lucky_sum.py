@@ -6,9 +6,13 @@ def lucky_sum(a, b, c):
     index = len(l)
     if 13 in l:
         index = l.index(13)
-    res = l[:index]
-    return sum(res)
+    return sum(l[:index])
 
 print(lucky_sum(1, 2, 3)) # → 6
 print(lucky_sum(1, 2, 13)) # → 3
 print(lucky_sum(1, 13, 3)) # → 1
+print(lucky_sum(1, 13, 13)) # → 1	1	OK	
+print(lucky_sum(6, 5, 2)) # → 13	13	OK	
+print(lucky_sum(13, 2, 3)) # → 0	0	OK	
+print(lucky_sum(13, 2, 13)) # → 0	0	OK	
+print(lucky_sum(13, 13, 2)) # → 0	0	OK
