@@ -20,3 +20,8 @@ def close_far(a, b, c):
 print(close_far(1, 2, 10)) # → True
 print(close_far(1, 2, 3)) # → False
 print(close_far(4, 1, 3)) # → True
+print(close_far(4, 5, 3)) #  → False	False	OK	
+print(close_far(4, 3, 5)) #  → False	False	OK	
+print(close_far(-1, 10, 0)) #  → True	True	OK	
+print(close_far(0, -1, 10)) #  → True	True	OK	
+print(close_far(10, 10, 8)) #  → True	True	OK	
