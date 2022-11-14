@@ -25,3 +25,7 @@ print(close_far(4, 3, 5)) #  → False	False	OK
 print(close_far(-1, 10, 0)) #  → True	True	OK	
 print(close_far(0, -1, 10)) #  → True	True	OK	
 print(close_far(10, 10, 8)) #  → True	True	OK	
+print(close_far(10, 8, 9)) #  → False	False	OK	
+print(close_far(8, 9, 10)) #  → False	False	OK	
+print(close_far(8, 9, 7)) #  → False	False	OK	
+print(close_far(8, 6, 9)) #  → True	True	OK
