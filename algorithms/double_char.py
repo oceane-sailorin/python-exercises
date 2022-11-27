@@ -9,3 +9,6 @@ print(double_char('Hi-There')) # → 'HHii--TThheerree'
 print(double_char('Word!')) # → 'WWoorrdd!!'	'WWoorrdd!!'	OK	
 print(double_char('!!')) # → '!!!!'	'!!!!'	OK	
 print(double_char('')) # → ''	''	OK	
+print(double_char('a')) # → 'aa'	'aa'	OK	
+print(double_char('.')) # → '..'	'..'	OK	
+print(double_char('aa')) # → 'aaaa'	'aaaa'	OK
