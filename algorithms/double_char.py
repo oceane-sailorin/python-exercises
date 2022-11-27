@@ -6,3 +6,6 @@ def double_char(str):
 print(double_char('The')) # → 'TThhee'
 print(double_char('AAbb')) # → 'AAAAbbbb'
 print(double_char('Hi-There')) # → 'HHii--TThheerree'
+print(double_char('Word!')) # → 'WWoorrdd!!'	'WWoorrdd!!'	OK	
+print(double_char('!!')) # → '!!!!'	'!!!!'	OK	
+print(double_char('')) # → ''	''	OK	
