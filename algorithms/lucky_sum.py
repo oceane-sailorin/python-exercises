@@ -20,6 +20,6 @@ print(lucky_sum(9, 4, 13)) # → 13	13	OK
 print(lucky_sum(8, 13, 2)) # → 8	8	OK	
 print(lucky_sum(7, 2, 1)) # → 10	10	OK	
 print(lucky_sum(3, 3, 13)) # → 6	6	OK
-print(lucky_sum(13, 13, 13)) # → 6	6	OK
-print(lucky_sum(0, 13, 0)) # → 6	6	OK
-print(lucky_sum(1, 13, 0)) # → 6	6	OK
+print(lucky_sum(13, 13, 13)) # → 0	0	OK
+print(lucky_sum(0, 13, 0)) # → 0	0	OK
+print(lucky_sum(1, 13, 0)) # → 1	1	OK
