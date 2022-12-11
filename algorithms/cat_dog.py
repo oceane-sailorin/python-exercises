@@ -8,3 +8,8 @@ def cat_dog(str):
 print(cat_dog('catdog')) # → True
 print(cat_dog('catcat')) #  → False
 print(cat_dog('1cat1cadodog')) #  → True
+print(cat_dog('catxdogxdogxcat')) # → True	True	OK	
+print(cat_dog('catxdogxdogxca')) # → False	False	OK	
+print(cat_dog('dogdogcat')) # → False	False	OK	
+print(cat_dog('dogogcat')) # → True	True	OK	
+print(cat_dog('dog')) # → False	False	OK
