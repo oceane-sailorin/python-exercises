@@ -13,3 +13,7 @@ print(cat_dog('catxdogxdogxca')) # → False	False	OK
 print(cat_dog('dogdogcat')) # → False	False	OK	
 print(cat_dog('dogogcat')) # → True	True	OK	
 print(cat_dog('dog')) # → False	False	OK
+print(cat_dog('cat')) # → False	False	OK	
+print(cat_dog('ca')) # → True	True	OK	
+print(cat_dog('c')) # → True	True	OK	
+print(cat_dog('')) # → True	True	OK
